@@ -1,0 +1,323 @@
+/*Variables*/
+:root {
+    /*The height that action panel buttons are offset from*/
+    --regstration_controls_y_offset: 60px;
+    --button_width: 100px;
+    --button_height: 40px;
+    --sidebar_width: 200px;
+    --sidebar_center_x: calc(var(--sidebar_width) / 2) - calc(var(--button_width) / 2);
+}
+
+.page_banner_message{
+     font-family: 'Montserrat', sans-serif;
+     font-size: 15pt;
+}
+
+.content_panel {
+    position: absolute;
+    background-color: #eff28f;
+}
+
+.styled_button {
+    position: absolute;
+    border-type: solid;
+    border-color: #000000;
+    border-radius: 5px;
+
+    background-color: gray;
+    width: var(--button_width);
+    height: var(--button_height);
+    top: 6px;
+}
+
+.action_panel_title {
+     font-family: 'Montserrat', sans-serif;
+     font-size: 15pt;
+}
+
+/*========REGISTRATION PAGE CSS========*/
+#register_button {
+    width: 140px;
+    height: 50px;
+    left: 246px;
+    background-color: #95ddde;
+    top: 6px;
+}
+
+#registration_cancel_button {
+    width: 140px;
+    height: 50px;
+    left: 496px;
+    top: 6px;
+    background-color: #95ddde;
+}
+
+
+/*Properties for action panel (panel containing buttons for form submission)*/
+.registration_action_panel {
+    position: absolute;
+    background-color: #eba573;
+    width: 829px;
+    height: 62px;
+    top: calc(360px + var(--regstration_controls_y_offset));
+    /*left: 300px;*/
+    left: calc(50% - 414px);
+    border: 2px solid black;
+}
+/*Properties for registration field panels (panels containing controls where
+user can enter registration info)*/
+.registration_field_panel {
+    width: 200px;
+    height: 60px;
+}
+/*Properties for registration field description panels (panels containing
+instructions related to the field for the user to be aware of.)*/
+.registration_field_descriptor_panel {
+    width: 600px;
+    height: 48px;
+    padding: 16px;
+}
+.user_name_panel {
+    padding: 10px;
+    top: calc(70px + var(--regstration_controls_y_offset));
+    left: calc(50% - 414px);
+}
+.username_descriptor_panel {
+    top: calc(70px + var(--regstration_controls_y_offset));
+    left: calc(50% - 214px);
+}
+.password_panel {
+    padding: 10px;
+    top: calc(140px + var(--regstration_controls_y_offset));
+    left: calc(50% - 414px);
+}
+.password_descriptor_panel {
+    top: calc(140px + var(--regstration_controls_y_offset));
+    left: calc(50% - 214px);
+}
+.name_panel {
+    padding: 10px;
+    top: calc(210px + var(--regstration_controls_y_offset));
+    left: calc(50% - 414px);
+    height: 50px
+}
+.name_descriptor_panel {
+    top: calc(210px + var(--regstration_controls_y_offset));
+    left: calc(50% - 214px);
+}
+.email_panel {
+    padding: 10px;
+    top: calc(280px + var(--regstration_controls_y_offset));
+    left: calc(50% - 414px);
+    height: 70px;
+}
+.email_descriptor_panel {
+    top: calc(280px + var(--regstration_controls_y_offset));
+    left: calc(50% - 214px);
+}
+/*========END REGISTRATION PAGE CSS========*/
+
+
+
+/*============USER HOMEPAGE CSS============*/
+.homepage_left_border_panel {
+    position: absolute;
+    background-color: #eba573;
+    width: var(--sidebar_width);
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    border: 2px solid black;
+}
+.homepage_right_border_panel {
+    position: absolute;
+    background-color: #eba573;
+    width: var(--sidebar_width);
+    height: 100%;
+    top: 0px;
+    left: 1150px;
+    border: 2px solid black;
+}
+#log_out_button {
+    background-color: lightgray;
+    top: calc(-5px + var(--regstration_controls_y_offset));
+    left: calc(calc(var(--sidebar_width) / 2) - calc(var(--button_width) / 2));
+}
+#change_password_button {
+    background-color: lightgray;
+    top: calc(50px + var(--regstration_controls_y_offset));
+    left: calc(calc(var(--sidebar_width) / 2) - calc(var(--button_width) / 2));
+}
+#new_reminder_button {
+    background-color: #68ad8b;
+    top: calc(145px + var(--regstration_controls_y_offset));
+    left: calc(calc(var(--sidebar_width) / 2) - calc(var(--button_width) / 2));
+}
+#rems_within_day_btn {
+    background-color: #a67288;
+    top: calc(240px + var(--regstration_controls_y_offset));
+    left: calc(var(--sidebar_center_x) + 27px);
+}
+img#rems_within_24hrs_img {
+    position: absolute;
+    top: calc(237px + var(--regstration_controls_y_offset));
+    left: 22px;
+}
+#rems_within_week_btn {
+    background-color: #a67288;
+    top: calc(295px + var(--regstration_controls_y_offset));
+    left: calc(var(--sidebar_center_x) + 27px);
+}
+img#rems_within_week_img {
+    position: absolute;
+    top: calc(292px + var(--regstration_controls_y_offset));
+    left: 22px;
+}
+#rems_within_month_btn {
+    background-color: #a67288;
+    top: calc(350px + var(--regstration_controls_y_offset));
+    left: calc(var(--sidebar_center_x) + 27px);
+}
+img#rems_within_month_img {
+    position: absolute;
+    top: calc(347px + var(--regstration_controls_y_offset));
+    left: 22px;
+}
+#rems_within_year_btn {
+    background-color: #a67288;
+    top: calc(405px + var(--regstration_controls_y_offset));
+    left: calc(var(--sidebar_center_x) + 27px);
+}
+img#rems_within_year_img {
+    position: absolute;
+    top: calc(402px + var(--regstration_controls_y_offset));
+    left: 22px;
+}
+#past_rems_btn {
+    background-color: #f02e3a;
+    top: calc(460px + var(--regstration_controls_y_offset));
+    left: calc(var(--sidebar_center_x));
+}
+#reminder_table {
+    width: 800px
+}
+/*============END USER HOMEPAGE CSS============*/
+
+
+
+/*============NEW REMINDER PAGE CSS============*/
+#make_reminder_button {
+    left: 246px;
+    top: 6px;
+    width: 140px;
+    height: 50px;
+    background-color: #37b015;
+}
+#make_reminder_cancel_button {
+    left: 496px;
+    top: 6px;
+    width: 140px;
+    height: 50px;
+    background-color: #37b015;
+}
+/*Properties for action panel (panel containing buttons for form submission)*/
+.reminder_action_panel {
+    position: absolute;
+    background-color: #ffb366;
+    width: 905px;
+    height: 62px;
+    top: calc(461px + var(--regstration_controls_y_offset));
+    left: 260px;
+    border: 2px solid black;
+}
+/*Properties for registration field panels (panels containing controls where
+user can enter registration info)*/
+.reminder_field_panel {
+    width: 275px; /*200px*/
+    height: 100px; /*60px*/
+}
+.reminder_field_descriptor_panel {
+    width: 600px;
+    height: 100px; /*48px*/
+    padding: 16px;
+}
+#rem_title_textbox {
+    resize: vertical;
+    max-height: 45px;
+    width: 250px;
+}
+#rem_tags_textbox {
+    resize: vertical;
+    max-height: 45px;
+    width: 250px;
+}
+#rem_description_textbox{
+    resize: vertical;
+    max-height: 80px;
+    width: 250px;
+    height: 200px;
+}
+.reminder_datetime_panel {
+    padding: 10px;
+    top: calc(70px + var(--regstration_controls_y_offset));
+    left: 262px;
+    height: 60px;
+}
+.rem_datetime_descriptor_panel {
+    top: calc(70px + var(--regstration_controls_y_offset));
+    left: 537px;
+    height: 60px;
+}
+.reminder_title_panel {
+    padding: 10px;
+    top: calc(130px + var(--regstration_controls_y_offset));
+    left: 262px;
+}
+.rem_title_descriptor_panel {
+    top: calc(130px + var(--regstration_controls_y_offset));
+    left: 537px;
+}
+.rem_tags_panel {
+    padding: 10px;
+    top: calc(240px + var(--regstration_controls_y_offset));
+    left: 262px;
+}
+.rem_tags_descriptor_panel {
+    top: calc(240px + var(--regstration_controls_y_offset));
+    left: 537px;
+}
+.rem_details_panel {
+    padding: 10px;
+    top: calc(330px + var(--regstration_controls_y_offset));
+    left: 262px;
+    height: 112px; /*70px*/
+}
+.rem_description_descriptor_panel {
+    top: calc(330px + var(--regstration_controls_y_offset));
+    left: 537px;
+    height: 100px;
+}
+/*============END NEW REMINDER PAGE CSS============*/
+
+/*============UPDATE PASSWORD PAGE CSS=============*/
+.new_password_panel {
+    padding: 10px;
+    top: calc(70px + var(--regstration_controls_y_offset));
+    left: 300px;
+}
+.re_entered_password_panel {
+    padding: 10px;
+    top: calc(140px + var(--regstration_controls_y_offset));
+    left: 300px;
+}
+.update_password_field_panel {
+    width: 200px;
+    height: 60px;
+}
+
+.update_password_field_descriptor_panel {
+    width: 600px;
+    height: 48px;
+    padding: 16px;
+}
+/*============END UPDATE PASSWORD PAGE CSS=============*/

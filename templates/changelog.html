@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pynote - Changelog</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='CSS/website_stylesheet.css') }}">
+    <body style="background-color:#a4a832">
+
+    <center>
+    <h1>Pynote Changelog</h1>
+        <p class="page_banner_message">A page containing a list of updates to the website and respective details.</p>
+
+        <!--This table contains changelog information-->
+        <table id="changelog_table" border="1" style="background-color: #989898;">
+            <tr>
+                <th>Version</th>
+                <th>Date</th>
+                <th>Changes</th>
+            </tr>
+            <tr>
+                <td>4.0</td>
+                <td>29 March 2024</td>
+                <td>
+                    <ul>
+                        <li>Consolidated/refactored CSS stylesheets into a single document</li>
+                        <li>Tested user authentication (verified can't access pages aside from
+                        login/registration/changelog unless logging in)</li>
+                        <li>Tested login page</li>
+                        <li>Tested user registration page/process</li>
+                        <li>Tested reminder creation page</li>
+                        <li>Tested user homepage</li>
+                        <li>Tested password update page</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>3.0</td>
+                <td>24 March 2024</td>
+                <td>
+                    <ul>
+                        <li>Created html/css for password update page</li>
+                        <li>Created flask event handler for password update page</li>
+                        <li>Created functions to handle password update validation/entry in user info database</li>
+                        <li>Added links to websites for password creation help, most common password list,
+                            and world time/date related information.</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>2.0</td>
+                <td>19 March 2024</td>
+                <td>
+                    <ul>
+                        <li>Created flask event handler for user homepage</li>
+                        <li>Created homepage html/css</li>
+                        <li>Created 'new reminder' page html/css</li>
+                        <li>Added event handler for 'new reminder' page</li>
+                        <li>Added code for 'new reminder' data validation</li>
+                        <li>Added code for creating individual user reminder databases
+                            and adding new reminders to them</li>
+                        <li>Added code to retrieve reminders based on time left for reminder deadline</li>
+                        <li>Added image icons for reminder buttons</li>
+                        <li>Created changelog page html/css</li>
+                        <li>Created flask event handler for changelog page</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>1.0</td>
+                <td>14 March 2024</td>
+                <td>
+                    <ul>
+                        <li>Created server project</li>
+                        <li>Added CSS file for website</li>
+                        <li>Created index/login page html/css</li>
+                        <li>Added flask event handler for index page</li>
+                        <li>Created registration page html/css</li>
+                        <li>Added event handler for registration page</li>
+                        <li>Added code for registration data validation</li>
+                        <li>Added database initialization/access code</li>
+                        <li>Added code to add user data to database of users</li>
+                        <li>Added code to allow users to login/be authenticated and issue session tokens</li>
+                    </ul>
+                </td>
+            </tr>
+        </table>
+
+        <br>
+        <!––Button to return to the homepage––>
+        <a href="/" register><button>Return to Login Page</button></a>
+
+    </center>
+</head>
+<body>
+
+</body>
+</html>

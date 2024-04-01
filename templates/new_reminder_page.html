@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Used to load CSS stylesheet -->
+<head>
+    <body style="background-color:#a4a832">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='CSS/website_stylesheet.css') }}">
+</head>
+
+<!-- Div used for the page banner (contains title and page action banner) -->
+<div name="page_banner" class="page_banner">
+<center>
+<h1>New Reminder</h1>
+<p class="page_banner_message">{{ jinja_variables['BANNER_MESSAGE'] }}</p>
+</center>
+</div>
+
+<!-- Form that contains user information for submission to server -->
+<form id="new_reminder_form" action="/new_reminder_page" method="POST">
+    <!-- Used to identify the form type. -->
+    <input type="hidden" name="new_reminder_form">
+    <!-- Stores session ID, used to identify the user's session. -->
+    <input type="hidden"  name="session_id" value="{{ jinja_variables['SessionID'] }}">
+    <input type="hidden"  name="post_action" value="save_reminder">
+
+    <!-- Div containing reminder datetime picker -->
+    <div name="reminder_datetime" class="reminder_datetime_panel reminder_field_panel content_panel">
+        <label for="text">Reminder Date/Time</label><br>
+        <input type="datetime-local" id="reminder_datetime_box" name="reminder_datetime">
+    </div>
+    <!-- Div containing reminder date information -->
+    <div name="rem_datetime_descriptor" class="rem_datetime_descriptor_panel reminder_field_descriptor_panel content_panel">
+        <label for="text" class="field_descriptor">{{ jinja_variables['REM_DATETIME_DESCRIPTOR'] }}</label>
+    </div>
+    <!-- Div containing reminder title input -->
+    <div name="reminder_title" class="reminder_title_panel reminder_field_panel content_panel">
+        <label for="text">Reminder Title</label><br>
+        <textarea type="textarea" id="rem_title_textbox" name="reminder_title"></textarea>
+    </div>
+    <!-- Div containing reminder title information -->
+    <div name="rem_title_description" class="rem_title_descriptor_panel reminder_field_descriptor_panel content_panel">
+        <label for="text" class="field_descriptor">{{ jinja_variables['REM_TITLE_DESCRIPTOR'] }}</label>
+    </div>
+    <!-- Div containing reminder tags input -->
+    <div name="rem_tags_field" class="rem_tags_panel reminder_field_panel content_panel">
+        <label for="text">Reminder Tags</label><br>
+         <textarea type="textarea" id="rem_tags_textbox" name="rem_tags_textbox"></textarea>
+    </div>
+    <!-- Div containing reminder tags descriptor -->
+    <div name="rem_tags_description" class="rem_tags_descriptor_panel reminder_field_descriptor_panel content_panel">
+        <label for="text" class="field_descriptor">{{ jinja_variables['REM_TAGS_DESCRIPTOR'] }}</label>
+    </div>
+    <!-- Div containing reminder details input -->
+    <div name="rem_details_field" class="rem_details_panel reminder_field_panel content_panel">
+        <label for="text">Reminder Description</label> <br>
+        <textarea type="textarea" id="rem_description_textbox" name="rem_description_textbox"></textarea>
+    </div>
+    <!-- Div containing reminder description information -->
+    <div name="reminder_desc_description" class="rem_description_descriptor_panel reminder_field_descriptor_panel content_panel">
+        <label for="text" class="field_descriptor">{{ jinja_variables['REM_DESCRIPTION_DESCRIPTOR'] }}</label>
+    </div>
+</form>
+
+<!-- Form for the cancel button, contains the 'reload_page' keyword to reload the homepage-->
+<form id="cancel_form" action="/user_homepage" method="POST">
+    <!-- Used to identify the form type. -->
+    <input type="hidden" name="cancel_form">
+    <!-- Stores session ID, used to identify the user's session. -->
+    <input type="hidden"  name="session_id" value="{{ jinja_variables['SessionID'] }}">
+    <input type="hidden"  name="post_action" value="reload_page">
+</form>
+
+<!-- Div containing buttons -->
+<div name="action_panel" class="reminder_action_panel">
+
+    <!––Button to submit reminder info to server––>
+    <a href="/user_homepage" cancel_btn>
+    <button type="submit "class="styled_button" id="make_reminder_button" form="new_reminder_form">
+        Make Reminder
+    </button>
+
+    <a href="/user_homepage" cancel_btn>
+        <button class="styled_button" id="make_reminder_cancel_button" form="cancel_form">
+            Cancel
+        </button></a>
+
+</div>
+
+</html>

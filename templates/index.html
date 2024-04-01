@@ -1,0 +1,25 @@
+<body style="background-color:#a4a832">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='CSS/website_stylesheet.css') }}">
+<title>Pynote - Home Page</title>
+
+<center>
+<h1>Welcome to Pynote!</h1>
+<p class="page_banner_message"> {{ jinja_variables["BANNER_MESSAGE"] }} </p>
+
+<!––Form to submit user login information––>
+<form action="/" method="POST">
+    <label for="text">USERNAME</label><br>
+    <input type="text" id="Username" name="Username"><br><br>
+    <label for="text">PASSWORD</label><br>
+    <input type="password" id="Password" name="Password"><br><br>
+
+    <button type="submit">Log in!</button> <br><br>
+</form>
+
+<!––Button to access the registration page––>
+<a href="/register" register><button>Register</button></a>
+
+<!––Button to access the website changelog––>
+<a href="/changelog" access_changelog><button>Website Change log</button></a>
+
+</center>

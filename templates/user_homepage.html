@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home page</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='CSS/website_stylesheet.css') }}">
+    <body style="background-color:#a4a832">
+</head>
+<body>
+
+<!-- Forms used for button submission -->
+<!-- Log out button -->
+<form id="logout_form" action="/user_homepage" method="POST">
+    <!-- Hidden value, whose value is used to identify the action -->
+    <input type="hidden" name="post_action" value="logout">
+    <!-- Stores session ID, used to identify the user's session. -->
+    <input type="hidden"  name="session_id" value="{{ jinja_variables['SessionID'] }}">
+</form>
+<!-- Change password button -->
+<form id="change_password_form" action="/user_homepage" method="POST">
+    <!-- Hidden value, whose value is used to identify the action -->
+    <input type="hidden" name="post_action" value="change_password">
+    <!-- Stores session ID, used to identify the user's session. -->
+    <input type="hidden" name="session_id" value="{{ jinja_variables['SessionID'] }}">
+</form>
+<!-- New reminder button -->
+<form id="new_reminder_form" action="/new_reminder_page" method="POST">
+    <!-- Hidden value, whose value is used to identify the action -->
+    <input type="hidden" name="post_action" value="new_reminder">
+    <!-- Stores session ID, used to identify the user's session. -->
+    <input type="hidden" name="session_id" value="{{ jinja_variables['SessionID'] }}">
+</form>
+
+<!-- Reminders within next 24 hours (day)-->
+<form id="rems_within_day_form" action="/user_homepage" method="POST">
+    <!-- Hidden value, whose value is used to identify the action -->
+    <input type="hidden" name="post_action" value="rems_within_day">
+    <!-- Stores session ID, used to identify the user's session. -->
+    <input type="hidden" name="session_id"  value="{{ jinja_variables['SessionID'] }}">
+</form>
+<!-- Reminders for week -->
+<form id="rems_within_week_form" action="/user_homepage" method="POST">
+    <!-- Hidden value, whose value is used to identify the action -->
+    <input type="hidden" name="post_action" value="rems_within_week">
+    <!-- Stores session ID, used to identify the user's session. -->
+    <input type="hidden" name="session_id"  value="{{ jinja_variables['SessionID'] }}">
+</form>
+<!-- Reminders for month -->
+<form id="rems_within_month_form" action="/user_homepage" method="POST">
+    <!-- Hidden value, whose value is used to identify the action -->
+    <input type="hidden" name="post_action" value="rems_within_month">
+    <!-- Stores session ID, used to identify the user's session. -->
+    <input type="hidden" name="session_id"  value="{{ jinja_variables['SessionID'] }}">
+</form>
+<!-- Reminders for year -->
+<form id="rems_within_year_form" action="/user_homepage" method="POST">
+    <!-- Hidden value, whose value is used to identify the action -->
+    <input type="hidden" name="post_action" value="rems_within_year">
+    <!-- Stores session ID, used to identify the user's session. -->
+    <input type="hidden" name="session_id"  value="{{ jinja_variables['SessionID'] }}">
+</form>
+<!-- Past reminders (up to 3 days expired) -->
+<form id="past_rems_form" action="/user_homepage" method="POST">
+    <!-- Hidden value, whose value is used to identify the action -->
+    <input type="hidden" name="post_action" value="past_rems">
+    <!-- Stores session ID, used to identify the user's session. -->
+    <input type="hidden" name="session_id"  value="{{ jinja_variables['SessionID'] }}">
+</form>
+
+
+<!-- Div used for the page banner (contains title and page action banner) -->
+<div name="page_banner" class="page_banner">
+<center>
+<h1>Homepage</h1>
+<h2 class="page_banner_message">{{ jinja_variables["BANNER_MESSAGE"] }}</h2>
+<h3 class="datetime_banner_message">{{ jinja_variables["CURRENT_DATETIME"] }}</h3>
+
+
+<!-- Table used to display user's reminders -->
+<table id="reminder_table" border="1">
+        <thead>
+            <tr>
+                <th style="background-color: gray;">Date/Time</th>
+                <th style="background-color: gray;">Title</th>
+                <th style="background-color: gray;">Description</th>
+                <th style="background-color: gray;">Tags</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for value in jinja_variables["Reminder_Entries"] %}
+            <tr>
+                <td style="background-color: {{ value.deadline_proximity_color }}">{{ value.reminder_datetime }}</td>
+                <td style="background-color: {{ value.deadline_proximity_color }}">{{ value.reminder_title }}</td>
+                <td style="background-color: {{ value.deadline_proximity_color }}">{{ value.reminder_description }}</td>
+                <td style="background-color: {{ value.deadline_proximity_color }}">{{ value.reminder_tags }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+</table>
+</center>
+</div>
+
+<div class="homepage_left_border_panel">
+    <center>
+        <br>
+        <h class="action_panel_title"> <u>Instructions</u></h>
+        <br>
+        <p style="padding: 4px;">To view reminders within a given timeframe, click the corresponding filter button on the right
+        side of the page. Reminders will be sorted such that the top-most reminder is the closest to the
+        present. Reminders will also be colored based on how soon their deadline is approaching. They are
+        colored as follows:</p>
+
+        <ol style="background-color: #091369;">
+            <li style="color: #e3735d;">Within 24 hours</li>
+            <li style="color: #dba723;">Between 24 and 48 hours</li>
+            <li style="color: #d1d435;">Between 48 and 72 hours</li>
+            <li style="color: #3bc930;">72 hours or later</li>
+        </ol>
+
+        <p style="padding: 4px;">Reminders that have expired (deadline is in the past) will be stored for up to 72 hours
+        after their deadline. Any reminder older than 72 hours will be deleted.</p>
+
+        <!-- Link to world clock list (useful for planning reminders around different time zones) -->
+        <a href="https://www.timeanddate.com/worldclock/"
+            target="_blank">Get worldwide time-related information</a>
+
+    </center>
+</div>
+
+
+
+
+<div class="homepage_right_border_panel">
+    <input type="hidden" value=" ">
+    <center>
+        <br>
+        <h class="action_panel_title"> <u>Account Actions</u></h>
+        <br>
+        <button class="styled_button" id="log_out_button" form="logout_form">Log Out</button>
+        <form action="/update_password" method="post">
+            <!-- Hidden value, whose value is used to identify the action -->
+            <input type="hidden" name="post_action" value="load_page">
+            <!-- Stores session ID, used to identify the user's session. -->
+            <input type="hidden"  name="session_id" value="{{ jinja_variables['SessionID'] }}">
+            <button type="submit" class="styled_button" id="change_password_button">Update Password</button>
+        </form>
+
+
+        <br> <br> <br> <br> <br> <br> <br>
+        <h class="action_panel_title"> <u>Reminder Actions</u></h>
+        <br>
+
+        <button class="styled_button" id="new_reminder_button" name="new_reminder_button" form="new_reminder_form">New Reminder</button>
+
+        <br> <br> <br> <br>
+        <h class="action_panel_title"> <u>Reminder Filters</u></h>
+        <button class="styled_button" id="rems_within_day_btn" form="rems_within_day_form">Next 24 Hours</button>
+        <button class="styled_button" id="rems_within_week_btn" form="rems_within_week_form">Next Week</button>
+        <button class="styled_button" id="rems_within_month_btn" form="rems_within_month_form">Next Month</button>
+        <button class="styled_button" id="rems_within_year_btn" form="rems_within_year_form">Next Year</button>
+        <button class="styled_button" id="past_rems_btn" form="past_rems_form">Expired Reminders</button>
+
+        <img src="/static/Images/rems_within_24hrs_ico.png" id="rems_within_24hrs_img" alt="Reminders Within Next 24 Hours">
+        <img src="/static/Images/rems_within_week_ico.png" id="rems_within_week_img" alt="Reminders Within Next Week">
+        <img src="/static/Images/rems_within_month_ico.png" id="rems_within_month_img" alt="Reminders Within Next Month">
+        <img src="/static/Images/rems_within_year_ico.png" id="rems_within_year_img" alt="Reminders Within Next Year">
+    </center>
+</div>
+
+
+</body>
+</html>

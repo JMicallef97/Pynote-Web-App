@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Used to load CSS stylesheet -->
+<head>
+    <body style="background-color:#a4a832">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='CSS/website_stylesheet.css') }}">
+</head>
+
+<!-- Div used for the page banner (contains title and page action banner) -->
+<div name="page_banner" class="page_banner">
+<center>
+<h1>Register for Pynote</h1>
+<p class="page_banner_message">{{ jinja_variables['BANNER_MESSAGE'] }}</p>
+</center>
+</div>
+
+
+<form id="registration_form" action="/register" method="POST">
+    <!-- Used to identify the form type. -->
+    <input type="hidden" name="registration_form">
+
+    <!-- Div containing username panel -->
+    <div name="username_field" class="user_name_panel registration_field_panel content_panel">
+        <label for="text">Username</label><br>
+        <input type="text" style="background-color: {{ jinja_variables['USERNAME_TB_BACKCOLOR'] }} " id="username_textbox" name="Username">
+    </div>
+    <!-- Div containing username information -->
+    <div name="username_descriptor" class="username_descriptor_panel registration_field_descriptor_panel content_panel">
+        <label for="text" class="field_descriptor">{{ jinja_variables['USERNAME_DESCRIPTOR'] }}</label>
+    </div>
+    <!-- Div containing password panel -->
+    <div name="password_field" class="password_panel registration_field_panel content_panel">
+        <label for="text">Password</label><br>
+        <input type="password" style="background-color: {{ jinja_variables['PASSWORD_TB_BACKCOLOR'] }} " id="password_textbox" name="Password">
+    </div>
+    <!-- Div containing password information -->
+    <div name="password_description" class="password_descriptor_panel registration_field_descriptor_panel content_panel">
+        <label for="text" class="field_descriptor">{{ jinja_variables['PASSWORD_DESCRIPTOR'] }}</label>
+    </div>
+    <!-- Div containing user's name panel -->
+    <div name="name_field" class="name_panel registration_field_panel content_panel">
+        <label for="text">Name</label><br>
+        <input type="text" style="background-color: white;" id="Person_Name" name="Name">
+    </div>
+    <!-- Div containing user name descriptor -->
+    <div name="name_description" class="name_descriptor_panel registration_field_descriptor_panel content_panel">
+        <label for="text" class="field_descriptor">{{ jinja_variables['NAME_DESCRIPTOR'] }}</label>
+    </div>
+    <!-- Div containing user's email panel -->
+    <div name="email_field" class="email_panel registration_field_panel content_panel">
+        <label for="text">E-mail</label> <br>
+        <input type="text" style="background-color: {{ jinja_variables['EMAIL_TB_BACKCOLOR'] }} ;" id="Email" name="Email">
+    </div>
+    <!-- Div containing username information -->
+    <div name="email_description" class="email_descriptor_panel registration_field_descriptor_panel content_panel">
+        <label for="text" class="field_descriptor">{{ jinja_variables['EMAIL_DESCRIPTOR'] }}</label>
+    </div>
+</form>
+
+<!-- Div containing buttons -->
+<div name="action_panel" class="registration_action_panel">
+    <!––Button to submit user information––>
+    <button type="submit "class="styled_button" id="register_button" form="registration_form">
+        Register
+    </button>
+
+    <a href="/" cancel_btn>
+        <button class="styled_button" id="registration_cancel_button" form="cancel_form">
+            Cancel
+        </button></a>
+
+</div>
+
+</html>
